@@ -1,8 +1,8 @@
 from character import Character
 
 class Hero(Character):
-    def __init__(self,name):
-        super().__init__(name, hp=50, attack_power=7)
+    def __init__(self,name, hp=50, attack_power=7):
+        super().__init__(name, hp, attack_power)
         self.inventory = []
 
     def add_item(self, item):
