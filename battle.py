@@ -10,18 +10,17 @@ def battle(hero, enemy):
         log = []
 
         while hero.is_alive() and enemy.is_alive():
-            enemy.take_damage(hero.attack_power)
-            msg = f"{hero.name} hits {enemy.name} for {hero.attack_power} damage."
-            print(msg); log.append(msg)
+            hero.attack(enemy)
+            log.append(f"{hero.name} attacks {enemy.name} for {hero.attack_power} damage")
+          
 
             if not enemy.is_alive():
                 msg = f"{enemy.name} is defeated"
                 print(msg); log.append(msg)
                 break
 
-            hero.take_damage(enemy.attack_power)
-            msg = f"{enemy.name} strickes back for {enemy.attack_power} damage."
-            print(msg); log.append(msg)
+            enemy.attack(hero)
+            log.append(f"{enemy.name} attacks {hero.name} for {enemy.attack_power} damage.")
 
             if not hero.is_alive():
                 msg = f"{hero.name} has been defeated"
